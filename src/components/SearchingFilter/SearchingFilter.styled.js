@@ -1,8 +1,13 @@
 import styled from '@emotion/styled';
 
-export const FilterLabel = styled.label`
-  margin-left: ${p => p.theme.space[4]}px;
+export const FilterWrapper = styled.div`
+  display: flex;
+  width: 500px;
+  align-items: center;
+  justify-content: center;
+`;
 
+export const FilterLabel = styled.label`
   font-size: ${p => p.theme.fontSizes.m};
   font-family: ${p => p.theme.fonts.monospace};
   font-weight: ${p => p.theme.fontWeights.semiBold};
@@ -10,7 +15,7 @@ export const FilterLabel = styled.label`
 
 export const FilterInput = styled.input`
   display: flex;
-  margin-left: ${p => p.theme.space[4]}px;
+  margin-left: ${p => p.theme.space[3]}px;
 
   border: ${p => p.theme.borders.bold};
   border-color: ${p => p.theme.colors.transparentGray};

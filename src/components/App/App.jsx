@@ -4,10 +4,12 @@ import { SearchingFilter } from '../SearchingFilter/SearchingFilter';
 import { ContactsList } from '../ContactsList/ContactsList';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { PhonebookTitle, ContactsTitle } from './App.styled';
+import { AppBar } from '../AppBar/AppBar';
+import { PhonebookTitle } from './App.styled';
 import { Toaster } from 'react-hot-toast';
-import { selectError, selectIsLoadiang } from '../../redux/contactsSlice';
+import { selectError, selectIsLoadiang } from '../../redux/selectors';
 import { fetchContacts } from '../../redux/operations';
+import { Loader } from '../Loader/Loader';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -23,9 +25,9 @@ export const App = () => {
       <Toaster />
       <PhonebookTitle>Phonebook</PhonebookTitle>
       <AddingContactsForm />
-      <ContactsTitle>Contacts</ContactsTitle>
+      <AppBar />
       <SearchingFilter />
-      {isLoading && !error && <b>Request in progress...</b>}
+      {isLoading && !error && <Loader />}
       <ContactsList />
     </>
   );

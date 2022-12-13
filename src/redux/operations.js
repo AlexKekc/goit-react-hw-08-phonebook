@@ -38,3 +38,17 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
+
+export const toggleCompleted = createAsyncThunk(
+  'contacts/toggleCompleted',
+  async (contact, thunkAPI) => {
+    try {
+      const response = await axios.put(`/contacts/${contact.id}`, {
+        favourite: !contact.favourite,
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

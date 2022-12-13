@@ -1,32 +1,11 @@
 import styled from '@emotion/styled';
 
-export const ContactItem = styled.li`
+export const StatusFilterWrapper = styled.div`
   display: flex;
-  align-items: center;
-
-  width: 450px;
-
-  margin-top: ${p => p.theme.space[3]}px;
+  gap: 4px;
 `;
 
-export const ContactCheckBox = styled.input`
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-`;
-
-export const ContactName = styled.span`
-  font-size: ${p => p.theme.fontSizes.m};
-  font-weight: ${p => p.theme.fontWeights.semiBold};
-`;
-
-export const ContactNumber = styled.span`
-  margin-left: ${p => p.theme.space[2]}px;
-  font-size: ${p => p.theme.fontSizes.m};
-  font-weight: ${p => p.theme.fontWeights.normal};
-`;
-
-export const DeleteButton = styled.button`
+export const StatusFilterButton = styled.button`
   padding-top: ${p => p.theme.space[1]}px;
   padding-bottom: ${p => p.theme.space[1]}px;
   padding-left: ${p => p.theme.space[2]}px;
@@ -48,7 +27,7 @@ export const DeleteButton = styled.button`
 
   :hover,
   :focus {
-    background-color: ${p => p.theme.colors.red};
+    background-color: ${p => p.theme.colors.yellow};
     color: ${p => p.theme.colors.white};
   }
 `;
