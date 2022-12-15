@@ -1,28 +1,21 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact, toggleCompleted } from 'redux/operations';
+import { deleteContact } from 'redux/contacts/operations';
 import PropTypes from 'prop-types';
 import {
   ContactItem,
-  ContactCheckBox,
   ContactName,
   ContactNumber,
   DeleteButton,
 } from './ContactsListItem.styled.js';
 
-export const ContactsItem = ({ contact }) => {
+export const ContactsItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteContact(contact.id));
-  const handleToggle = () => dispatch(toggleCompleted(contact));
+  const handleDelete = () => dispatch(deleteContact(id));
 
   return (
-    <ContactItem key={contact.id}>
-      <ContactCheckBox
-        type="checkbox"
-        checked={contact.favourite}
-        onChange={handleToggle}
-      />
-      <ContactName>{contact.name}:</ContactName>
-      <ContactNumber>{contact.number}</ContactNumber>
+    <ContactItem key={id}>
+      <ContactName>{name}:</ContactName>
+      <ContactNumber>{number}</ContactNumber>
       <DeleteButton type="button" onClick={handleDelete}>
         Delete
       </DeleteButton>
@@ -31,7 +24,6 @@ export const ContactsItem = ({ contact }) => {
 };
 
 ContactsItem.propTypes = {
-  // contact: PropTypes.shape.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
 };

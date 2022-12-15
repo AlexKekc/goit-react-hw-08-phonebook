@@ -9,12 +9,6 @@ export const ContactItem = styled.li`
   margin-top: ${p => p.theme.space[3]}px;
 `;
 
-export const ContactCheckBox = styled.input`
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-`;
-
 export const ContactName = styled.span`
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: ${p => p.theme.fontWeights.semiBold};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 import { Formik } from 'formik';
 import { contactsSchema } from '../../validation';
 import toast from 'react-hot-toast';
@@ -22,7 +22,7 @@ export const AddingContactsForm = () => {
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
     if (contacts.find(contact => contact.name === values.name)) {
       resetForm();
-      return toast.error(`Oops, ${values.name} is already in contacts`);
+      return toast.error(`Oops🙄, ${values.name} is already in contacts`);
     }
 
     dispatch(addContact(values));

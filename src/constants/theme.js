@@ -5,7 +5,6 @@ export const theme = Object.freeze({
     green: '#4caf50',
     red: '#f44336',
     blue: '#2196f3',
-    yellow: '#2196f3',
     skyBlue: '#14cbd8',
     gray: '#757575',
     lightGray: '#ececec',

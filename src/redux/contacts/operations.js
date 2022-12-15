@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
-axios.defaults.baseURL = 'https://638386a41ada9475c80213d9.mockapi.io';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
@@ -10,6 +11,7 @@ export const fetchContacts = createAsyncThunk(
       const response = await axios.get('/contacts');
       return response.data;
     } catch (error) {
+      toast.error(`Oops😐, something gone wrong`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -20,8 +22,10 @@ export const addContact = createAsyncThunk(
   async ({ name, number }, thunkAPI) => {
     try {
       const response = await axios.post('/contacts', { name, number });
+      toast.success(`😎${name} is added to the phonebook`);
       return response.data;
     } catch (error) {
+      toast.error(`Oops😐, something gone wrong`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -32,22 +36,10 @@ export const deleteContact = createAsyncThunk(
   async (contactId, thunkAPI) => {
     try {
       const response = await axios.delete(`/contacts/${contactId}`);
+      toast.info(`😈Contact is deleted from your phonebook`);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const toggleCompleted = createAsyncThunk(
-  'contacts/toggleCompleted',
-  async (contact, thunkAPI) => {
-    try {
-      const response = await axios.put(`/contacts/${contact.id}`, {
-        favourite: !contact.favourite,
-      });
-      return response.data;
-    } catch (error) {
+      toast.error(`Oops😐, something gone wrong`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
