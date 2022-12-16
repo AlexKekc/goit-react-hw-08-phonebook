@@ -6,17 +6,17 @@ export const ContactsForm = styled(Form)`
   flex-direction: column;
   gap: ${p => p.theme.space[4]}px;
 
-  width: 500px;
+  width: 300px;
 
   margin-top: ${p => p.theme.space[4]}px;
-  margin-left: ${p => p.theme.space[4]}px;
 
   padding-top: ${p => p.theme.space[4]}px;
   padding-bottom: ${p => p.theme.space[4]}px;
   padding-left: ${p => p.theme.space[4]}px;
   padding-right: ${p => p.theme.space[4]}px;
 
-  border: ${p => p.theme.borders.normal};
+  border-top: ${p => p.theme.borders.normal};
+  border-bottom: ${p => p.theme.borders.normal};
 
   font-family: ${p => p.theme.fonts.monospace};
   font-weight: ${p => p.theme.fontWeights.semiBold};
@@ -43,7 +43,7 @@ export const ContactsInput = styled(Field)`
 
   :hover,
   :focus {
-    border-color: ${p => p.theme.colors.green};
+    border-color: ${p => p.theme.colors.yellow};
   }
 `;
 
@@ -80,7 +80,7 @@ export const SubmitButton = styled.button`
 
   :hover,
   :focus {
-    background-color: ${p => p.theme.colors.green};
+    background-color: ${p => p.theme.colors.yellow};
     color: ${p => p.theme.colors.white};
   }
 `;

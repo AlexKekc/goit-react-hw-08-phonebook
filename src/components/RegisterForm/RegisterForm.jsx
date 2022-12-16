@@ -1,13 +1,12 @@
 import { useDispatch } from 'react-redux';
-
-import { Form } from '../RegisterForm/RegisterForm.styled';
+import { RegForm, RegLabel, RegInput, RegButton } from './RegisterForm.styled';
 import { register } from 'redux/auth/operations';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    const form = evt.currentTarget;
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.currentTarget;
 
     dispatch(
       register({
@@ -20,37 +19,20 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Form autoComplete="off" onSubmit={handleSubmit}>
-      <label>
+    <RegForm autoComplete="off" onSubmit={handleSubmit}>
+      <RegLabel>
         Username
-        <input
-          type="text"
-          name="name"
-          required
-          placeholder="Anna Smith"
-          minLength={3}
-        />
-      </label>
-      <label>
+        <RegInput type="text" name="name" required minLength={3} />
+      </RegLabel>
+      <RegLabel>
         Email
-        <input
-          type="email"
-          name="email"
-          required
-          placeholder="my-mail@gmail.com"
-        />
-      </label>
-      <label>
+        <RegInput type="email" name="email" required />
+      </RegLabel>
+      <RegLabel>
         Password
-        <input
-          type="password"
-          name="password"
-          minLength={7}
-          required
-          placeholder="*******"
-        />
-      </label>
-      <button type="submit">Register</button>
-    </Form>
+        <RegInput type="password" name="password" minLength={7} required />
+      </RegLabel>
+      <RegButton type="submit">Register</RegButton>
+    </RegForm>
   );
 };

@@ -1,15 +1,20 @@
 import { RegisterForm } from '../components/RegisterForm/RegisterForm';
-import { NavLink } from 'react-router-dom';
+import {
+  RegisterContainer,
+  RegisterTitle,
+  RegisterText,
+  RegisterLink,
+} from './Register.styled';
 
 const Register = () => {
   return (
-    <div>
-      <h2>Registration</h2>
+    <RegisterContainer>
+      <RegisterTitle>Registration</RegisterTitle>
       <RegisterForm />
-      <p className="TextAuth">
-        Already registered? <NavLink to={'/login'}>Sign in</NavLink>
-      </p>
-    </div>
+      <RegisterText className="TextAuth">
+        Already registered? <RegisterLink to="/login">Sign in</RegisterLink>
+      </RegisterText>
+    </RegisterContainer>
   );
 };
 

@@ -1,49 +1,24 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  border: 1px solid rgb(176 176 176);
-  padding: 15px 30px;
-  max-width: 650px;
-  min-height: calc(100vh - 70px);
+  max-width: 900px;
+  min-height: 100vh;
   margin: 0 auto;
-  box-shadow: 0 0 10px 2px #787878bf;
-  border-radius: 5px;
+  padding-top: ${p => p.theme.space[3]}px;
+  padding-bottom: ${p => p.theme.space[3]}px;
 `;
 
 export const Header = styled.header`
-  padding-bottom: 10px;
   margin: 0 auto;
-  border-bottom: 1px solid #787878;
+  border-bottom: ${p => p.theme.borders.bold};
 `;
 
 export const PageContainer = styled.div`
-  max-width: 650px;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
-  min-height: 85vh;
-  h1 {
-    ::first-letter {
-      color: blue;
-    }
-  }
-  h2 {
-    ::first-letter {
-      color: blue;
-    }
-  }
-  p.TextAuth {
-    font-size: 20px;
-    padding-top: 15px;
-  }
-  a {
-    &:hover,
-    &:focus {
-      color: blue;
-    }
-  }
 `;
 
 export const Footer = styled.footer`
@@ -51,13 +26,21 @@ export const Footer = styled.footer`
   align-items: center;
   align-content: center;
   justify-content: center;
-  border-top: 1px solid #787878;
-  padding: 10px;
-  a {
-    color: #787878;
-    &:hover,
-    &:focus {
-      color: blue;
-    }
+  border-top: ${p => p.theme.borders.bold};
+  padding-top: ${p => p.theme.space[3]}px;
+`;
+
+export const FooterLink = styled.a`
+  color: ${p => p.theme.colors.primaryText};
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.yellow};
   }
+`;
+
+export const FooterText = styled.p`
+  font-size: ${p => p.theme.fontSizes.xs};
+  font-family: ${p => p.theme.fonts.monospace};
+  font-weight: ${p => p.theme.fontWeights.normal};
+  color: ${p => p.theme.colors.primaryText};
 `;

@@ -5,8 +5,8 @@ export const Loader = () => {
   return (
     <LoaderSpinner>
       <MutatingDots
-        height="50"
-        width="50"
+        height="100"
+        width="100"
         color="#edf11b"
         secondaryColor="#0e6cbe"
         radius="12.5"

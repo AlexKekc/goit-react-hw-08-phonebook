@@ -2,19 +2,19 @@ import React from 'react';
 import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectIsRefreshing } from '../../redux/auth/selectors';
+import { selectIsRefreshing } from '../redux/auth/selectors';
 import { Loader } from 'components/Loader/Loader';
-import { PrivateRoute } from '../PrivateRoute';
-import { RestrictedRoute } from '../RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
 import { Toaster } from 'react-hot-toast';
-import { refreshUser } from '../../redux/auth/operations';
+import { refreshUser } from '../redux/auth/operations';
 import Home from 'pages/Home';
-import Layout from '../Layout/Layout';
+import Layout from './Layout/Layout';
 document.title = 'PhonebookBox_redux';
 
-const RegisterPage = lazy(() => import('../../pages/Register'));
-const LoginPage = lazy(() => import('../../pages/Login'));
-const ContactsPage = lazy(() => import('../../pages/Contacts'));
+const RegisterPage = lazy(() => import('../pages/Register'));
+const LoginPage = lazy(() => import('../pages/Login'));
+const ContactsPage = lazy(() => import('../pages/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();

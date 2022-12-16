@@ -3,7 +3,13 @@ import { SearchingFilter } from '../components/SearchingFilter/SearchingFilter';
 import { ContactsList } from '../components/ContactsList/ContactsList';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { PhonebookTitle, ContactsTitle } from './Contacts.styled';
+import {
+  Container,
+  PhonebookContainer,
+  PhonebookTitle,
+  ContactsContainer,
+  ContactsTitle,
+} from './Contacts.styled';
 import { selectError, selectIsLoadiang } from '../redux/contacts/selectors';
 import { fetchContacts } from '../redux/contacts/operations';
 import { Loader } from 'components/Loader/Loader';
@@ -18,14 +24,18 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <PhonebookTitle>Phonebook</PhonebookTitle>
-      <AddingContactsForm />
-      <ContactsTitle>Contacts</ContactsTitle>
-      <SearchingFilter />
-      {isLoading && !error && <Loader />}
-      <ContactsList />
-    </>
+    <Container>
+      <PhonebookContainer>
+        <PhonebookTitle>Phonebook</PhonebookTitle>
+        <AddingContactsForm />
+      </PhonebookContainer>
+      <ContactsContainer>
+        <ContactsTitle>Contacts</ContactsTitle>
+        <SearchingFilter />
+        {isLoading && !error && <Loader />}
+        <ContactsList />
+      </ContactsContainer>
+    </Container>
   );
 };
 
