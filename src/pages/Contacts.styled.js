@@ -13,6 +13,7 @@ export const PhonebookContainer = styled.div`
 export const ContactsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 490px;
   border-right: ${p => p.theme.borders.normal};
   border-left: ${p => p.theme.borders.normal};
 `;
